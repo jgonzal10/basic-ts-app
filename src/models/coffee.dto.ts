@@ -1,9 +1,9 @@
-import { BaseModel } from "./base";
+import { Coffee } from "./coffee";
 
 type Countries = 'Colombia'|'Brazil'|'Ethiopia';
 type CoffeeBean = 'Arabica'|'Robusta';
 
-export interface Coffee extends BaseModel{
+export interface CoffeeDto extends Omit<Coffee, 'id'|'createdAt'|'updatedAt'>{
     producer:string|number;
     stock:number;
     image:string;
@@ -12,3 +12,4 @@ export interface Coffee extends BaseModel{
     bean:CoffeeBean;
     price:number;
 } 
+export interface UpdateCaffeeDto extends Partial<CoffeeDto> {}
